@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Все открытки{% endblock %}
+
+{% block content %}
+    <h2 class="my-4">Все открытки</h2>
+    <ul>
+    {% for card in cards %}
+        <li class="custom-control-inline">
+{#        <img src="{{ url_for('main.uploaded_file', category=card.category, filename=card.img) }}" class="img-thumbnail smallimg">#}
+            <a href ="{{ card.img }}"><img class="img-thumbnail smallimg" src="{{ card.img }}"></a>
+        <table class="table">
+            <tr>
+                <td>Категория</td>
+                <td>Дата</td>
+                <td>Лайки</td>
+            </tr>
+            <tr>
+                <td>{{ card.category }}</td>
+                <td>{{ card.date }}</td>
+                <td>{{ card.vkusers }}</td>
+            </tr>
+        </table>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

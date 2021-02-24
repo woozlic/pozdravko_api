@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Добавить категорию{% endblock %}
+{% block content %}
+    <div class = "add">
+        <form method="post" enctype="multipart/form-data">
+            {{ form.csrf_token }}
+            {{ form.category }}
+            <input type="submit" value="Добавить категорию">
+        </form>
+    </div>
+{% endblock %}

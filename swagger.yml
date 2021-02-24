@@ -1,0 +1,41 @@
+swagger: "2.0"
+info:
+  description: This is the swagger file that goes with our server code
+  version: "1.0.0"
+  title: Swagger REST Article
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+
+basePath: "/api/v1.0"
+
+# Paths supported by the server application
+paths:
+  /cards:
+    get:
+      operationId: "cards.read"
+      tags:
+        - "открытки"
+      summary:
+        "открытки на все случаи жизни"
+      description:
+        "Поздравко"
+      responses:
+        200:
+          description:
+            "Успешно получили открытки"
+          schema:
+            type: "array"
+            items:
+              properties:
+                id:
+                  type: "integer"
+                img:
+                  type: "string"
+                category:
+                  type: "string"
+                date:
+                  type: "string"
+                liked:
+                  type: "array"

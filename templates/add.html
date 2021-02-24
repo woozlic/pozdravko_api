@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Страница добавления открыток{% endblock %}
+
+{% block content %}
+    <h1>Страница добавления открыток</h1>
+
+    <a href="{{ url_for('main.add_category') }}">Добавить новую категорию</a>
+    <a href="{{ url_for('main.add_cards') }}">Загрузить новые открытки</a>
+{% endblock %}

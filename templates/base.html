@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-grid.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-reboot.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <h5 class="my-0 mr-md-auto font-weight-normal"><a href="{{ url_for('main.index') }}">Api Pozdravko</a></h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <h2><a href="{{ url_for('main.add_category') }}">Добавить категорию</a></h2>
+            <h2><a href="{{ url_for('main.add_cards') }}">Добавить открытки</a></h2>
+            <h2><a href="{{ url_for('main.show_apis') }}">Все доступные Апи</a></h2>
+            <h2><a href="{{ url_for('main.get_cards') }}">Все доступные открытки</a></h2>
+            {% if user %}
+                {% if user.is_authenticated %}
+                    <p>Вы вошли как {{ user.username }}</p>
+                    <p><a href = "/logout">Выйти</a></p>
+                {% else %}
+                    <a href = "/login">Войти</a>
+                {% endif %}
+            {% endif %}
+      </nav>
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <div class = "messages">
+                {{ messages[0] }}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    {% block content %}
+
+    {% endblock %}
+    </div>
+</body>
+</html>

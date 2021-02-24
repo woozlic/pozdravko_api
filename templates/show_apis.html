@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Список доступных Апи{% endblock %}
+
+{% block content %}
+    <h3 class="my-4">Доступные апи:</h3>
+    <ul class="list-group">
+        <li>Получить все открытки
+            <a href="{{ url_for('main.get_cards_js') }}">127.0.0.1:5000/api/v1.0/cards.js</a>
+        </li>
+        <li>Получить открытку по ид
+            <b>127.0.0.1:5000/api/v1.0/cards/{id}.js</b>
+        </li>
+        <li>Получить все открытки в категории
+            <b>127.0.0.1:5000/api/v1.0/cards/{category}.js</b>
+        </li>
+    </ul>
+
+{% endblock %}
